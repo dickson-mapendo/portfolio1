@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initSmoothScrolling();
     initMobileMenu();
+    initBackToTop();
 });
 
 // ===== NAVIGATION =====
@@ -529,3 +530,34 @@ function initPerformanceMonitoring() {
 
 // Initialize performance monitoring
 initPerformanceMonitoring();
+
+// ===== BACK TO TOP BUTTON =====
+function initBackToTop() {
+    const backToTopButton = document.getElementById('back-to-top');
+
+    if (!backToTopButton) return;
+
+    // Show/hide button based on scroll position
+    function toggleBackToTopButton() {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    }
+
+    // Smooth scroll to top
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Event listeners
+    window.addEventListener('scroll', toggleBackToTopButton);
+    backToTopButton.addEventListener('click', scrollToTop);
+
+    // Initial check
+    toggleBackToTopButton();
+}
