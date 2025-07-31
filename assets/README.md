@@ -18,8 +18,12 @@ This directory contains all static assets for the portfolio website.
 
 ## Favicon
 
-The favicon.ico file should be placed in the root assets directory.
-You can generate favicons using online tools like favicon.io or realfavicongenerator.net.
+**IMPORTANT**: The favicon.ico file is currently missing and needs to be created.
+You can generate favicons using online tools like:
+- https://favicon.io/
+- https://realfavicongenerator.net/
+
+Place the generated favicon.ico file in the root assets directory.
 
 ## Font Awesome Icons
 
