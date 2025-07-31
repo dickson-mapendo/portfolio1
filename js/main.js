@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initBackToTop();
     initLazyLoading();
+    updateCopyrightYear();
 });
 
 // ===== NAVIGATION =====
@@ -569,4 +570,13 @@ function initBackToTop() {
 
     // Initial check
     toggleBackToTopButton();
+}
+
+// ===== COPYRIGHT YEAR UPDATE =====
+function updateCopyrightYear() {
+    const currentYearElement = document.getElementById('current-year');
+    if (currentYearElement) {
+        const currentYear = new Date().getFullYear();
+        currentYearElement.textContent = currentYear;
+    }
 }
