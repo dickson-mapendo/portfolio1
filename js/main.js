@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initMobileMenu();
     initBackToTop();
+    initLazyLoading();
 });
 
 // ===== NAVIGATION =====
@@ -304,7 +305,7 @@ function debounce(func, wait, immediate) {
 // ===== LAZY LOADING =====
 function initLazyLoading() {
     const images = document.querySelectorAll('img[loading="lazy"]');
-    
+
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
@@ -312,12 +313,20 @@ function initLazyLoading() {
                     const img = entry.target;
                     img.src = img.dataset.src || img.src;
                     img.classList.remove('lazy');
+                    img.classList.add('loaded');
                     imageObserver.unobserve(img);
                 }
             });
         });
-        
+
         images.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        images.forEach(img => {
+            img.src = img.dataset.src || img.src;
+            img.classList.remove('lazy');
+            img.classList.add('loaded');
+        });
     }
 }
 
