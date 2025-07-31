@@ -674,4 +674,31 @@ img {
     transform: none;
     box-shadow: var(--shadow-md);
   }
+
+  .back-to-top:hover {
+    transform: none;
+    background: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Back to Top Button Responsive Styles */
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: var(--space-4);
+    right: var(--space-4);
+    font-size: var(--text-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: var(--space-3);
+    right: var(--space-3);
+    font-size: var(--text-sm);
+  }
 }
